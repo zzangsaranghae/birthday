@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pink Pastel Design with Auto-Playing Music</title>
+  <title>Mobile Pink Pastel Design</title>
   <style>
     /* DungGeunMo 폰트 적용 */
     @font-face {
@@ -26,35 +26,33 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 10px;
     }
-    /* 창 스타일 */
+    /* 모바일 최적화 창 스타일 */
     .window {
       width: 100%;
-      max-width: 1000px;
       background-color: #fdf6f8;
       border: 3px solid #d1c2c9;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       overflow: hidden;
-      position: relative;
     }
     /* 타이틀 바 */
     .title-bar {
       background-color: #f3dbe2;
       border-bottom: 3px solid #d1c2c9;
-      padding: 10px;
+      padding: 8px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .title-bar .window-buttons {
       display: flex;
-      gap: 8px;
+      gap: 6px;
     }
     .title-bar .circle {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       display: inline-block;
     }
@@ -66,17 +64,17 @@
       border: 2px solid #ccc;
       border-radius: 6px;
       padding: 4px 8px;
-      font-size: 14px;
+      font-size: 12px;
       flex: 1;
-      margin: 0 16px;
+      margin: 0 8px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .nav-links {
       display: flex;
-      gap: 12px;
-      font-size: 14px;
+      gap: 6px;
+      font-size: 12px;
     }
     .nav-links a {
       text-decoration: none;
@@ -88,40 +86,38 @@
     .nav-links a:hover {
       background-color: #f5c9d6;
     }
-    /* 메인 콘텐츠 영역 */
+    /* 메인 콘텐츠 영역 (모바일: 1열 레이아웃) */
     .content {
-      padding: 20px;
+      padding: 10px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
     .card {
       background-color: #fff;
       border: 2px solid #d1c2c9;
       border-radius: 8px;
-      padding: 16px;
+      padding: 12px;
     }
-    .card h1,
-    .card h2 {
+    .card h1, .card h2 {
       margin-bottom: 8px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
     }
     .card p {
       font-size: 14px;
       line-height: 1.4;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    /* 프로필 이미지(원형) 및 프로필 카드 */
+    /* 프로필 카드 */
     .profile-card {
       text-align: center;
     }
     .circle-box {
       border-radius: 50%;
       overflow: hidden;
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       margin: 0 auto;
       border: 2px solid #d1c2c9;
     }
@@ -130,24 +126,24 @@
       height: 100%;
       object-fit: cover;
     }
-    /* 생일 관련 재밌는 요소 */
+    /* 생일 관련 재미 요소 */
     .birthday-fun {
-      margin-top: 15px;
+      margin-top: 10px;
       background: #fff0f5;
       border: 2px dashed #ff99cc;
       border-radius: 12px;
-      padding: 10px;
+      padding: 8px;
       text-align: center;
     }
     .birthday-fun button {
       background: #ff77aa;
       border: none;
       border-radius: 20px;
-      padding: 8px 16px;
+      padding: 6px 12px;
       color: #fff;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       transition: background 0.3s;
     }
     .birthday-fun button:hover {
@@ -156,72 +152,60 @@
     .birthday-fun img {
       max-width: 100%;
       border-radius: 8px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
+    /* 오디오 플레이어 */
     .audio-box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     .audio-timestamps {
       font-size: 12px;
       color: #666;
     }
-    .card-wide {
-      grid-column: span 2;
-    }
-    /* 오늘의 운세 영역 (귀여운 디자인) */
+    /* 오늘의 운세 (귀여운 디자인) */
     .fortune-container {
       background: #ffe6f0;
       border: 2px dashed #ffb3c1;
       border-radius: 12px;
-      padding: 20px;
+      padding: 12px;
       text-align: center;
     }
     .fortune-container h2 {
-      margin-bottom: 10px;
-      font-size: 20px;
+      margin-bottom: 8px;
+      font-size: 16px;
       color: #d6336c;
     }
     .fortune-container button {
       background: #ff99aa;
       border: none;
       border-radius: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 8px 16px;
+      font-size: 14px;
       color: #fff;
       cursor: pointer;
       transition: background 0.3s;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .fortune-container button:hover {
       background: #ff6688;
     }
     .fortune-container p {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
       color: #d6336c;
-    }
-    /* 반응형 */
-    @media (max-width: 768px) {
-      .content {
-        grid-template-columns: 1fr;
-      }
-      .card-wide {
-        grid-column: span 1;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- 자동재생 (소리 켜짐) 배경음악 -->
-  <audio id="bgm" autoplay loop>
+  <!-- 자동재생 (소리 켜짐) 배경음악 (컨트롤은 숨김) -->
+  <audio id="bgm" autoplay loop controls style="display:none;">
     <source src="생일축하.mp3" type="audio/mpeg">
     브라우저가 오디오 태그를 지원하지 않습니다.
   </audio>
   <script>
-    // 자동재생 (소리 ON) 처리
     const bgm = document.getElementById('bgm');
     bgm.muted = false;
     bgm.volume = 1.0;
@@ -229,25 +213,23 @@
   </script>
   
   <div class="window">
-    <!-- 상단 타이틀 바 -->
+    <!-- 타이틀 바 -->
     <div class="title-bar">
       <div class="window-buttons">
         <span class="circle red"></span>
         <span class="circle yellow"></span>
         <span class="circle green"></span>
       </div>
-      <div class="address-bar">
-        https://www.경서아줌마.com
-      </div>
+      <div class="address-bar">https://www.경서아줌마.com</div>
       <div class="nav-links">
         <a href="#home">* home</a>
         <a href="#rules">* rules</a>
         <a href="#interests">* interests</a>
       </div>
     </div>
-    
+    <!-- 메인 콘텐츠 -->
     <div class="content">
-      <!-- 좌측 상단 카드: 일반 텍스트 -->
+      <!-- 일반 텍스트 카드 -->
       <div class="card">
         <h1>🎉 계란한판 🥚 축하해!! 🎉</h1>
         <p>서른이라니 뭔가 대단한 전환점 같지만, 사실 별거 없지 않나?</p>
@@ -260,73 +242,60 @@
         <p><strong>생일빵^^ 🎂💥</strong></p>
       </div>
       
-      <!-- 우측 상단 프로필 카드: 원형 프로필 및 생일 재미 요소 -->
+      <!-- 프로필 카드 -->
       <div class="profile-card">
         <div class="circle-box">
-          <img src="profile.jpg" alt="Profile Image" />
+          <img src="profile.jpg" alt="Profile Image">
         </div>
-        <p style="margin-top: 12px;">
-          <strong>최경서/계란한판</strong><br>
-          오늘을 즐기세요...! 🎈
-        </p>
-        <!-- 생일 관련 재밌는 요소 추가 -->
+        <p style="margin-top: 8px;"><strong>최경서 / 계란한판</strong><br>오늘도 행복한 하루 되시오...</p>
         <div class="birthday-fun">
           <button id="birthday-btn">🎈 생일 파티 시작! 🎈</button>
           <p id="birthday-message" style="display:none;">생일 축하해요! 케이크, 선물, 웃음이 가득한 하루 되세요! 🎂🎉</p>
-          <!-- 케이크 이미지를 해당 사진으로 교체 -->
-          <img 
-            id="cake-img"
-            src="bd.jpg"
-            alt="생일 축하 이미지"
-            style="display:none;"
-          >
+          <img id="cake-img" src="https://i.pinimg.com/originals/21/1a/11/211a117069b4ebfbe6cf15c12b492843.jpg" alt="생일 축하 이미지" style="display:none;">
         </div>
       </div>
       
-      <!-- 좌측 하단 카드: 오디오 플레이어 -->
+      <!-- 오디오 플레이어 카드 -->
       <div class="card audio-box">
         <h2>Music Player</h2>
         <audio id="musicPlayer" controls>
           <source src="생일축하.mp3" type="audio/mpeg">
           브라우저가 오디오 태그를 지원하지 않습니다.
         </audio>
-        <div class="audio-timestamps">
-          0:00 / 02:23
-        </div>
+        <div class="audio-timestamps">0:02 / 3:21</div>
       </div>
       
-      <!-- 우측 하단 카드: 오늘의 운세 (귀여운 디자인) -->
-      <div class="card card-wide fortune-container">
+      <!-- 오늘의 운세 카드 -->
+      <div class="card fortune-container">
         <h2>오늘의 운세</h2>
         <button id="fortune-btn">🍀 운세 보러가기 🍀</button>
         <p id="fortune-result" style="display:none;"></p>
       </div>
     </div>
   </div>
-
+  
   <script>
-    /* "오늘의 운세" 기능 (랜덤 문구 표시) */
-    const fortunes = [
-      "오늘은 좋은 일이 생길 것 같아요! 🌟",
-      "뜻밖의 행운이 찾아올지도 몰라요. 🍀",
-      "소소한 행복이 곁에 있을 거예요. 😊",
-      "아무 걱정 없이 편안한 하루를 보낼 수 있어요. 🌸",
-      "멋진 기회가 다가오고 있으니 준비하세요! 🎉"
-    ];
+    // 오늘의 운세 기능
     const fortuneBtn = document.getElementById('fortune-btn');
     const fortuneResult = document.getElementById('fortune-result');
     fortuneBtn.addEventListener('click', () => {
+      const fortunes = [
+        "오늘은 좋은 일이 생길 것 같아요! 🌟",
+        "뜻밖의 행운이 찾아올지도 몰라요. 🍀",
+        "소소한 행복이 곁에 있을 거예요. 😊",
+        "아무 걱정 없이 편안한 하루를 보낼 수 있어요. 🌸",
+        "멋진 기회가 다가오고 있으니 준비하세요! 🎉"
+      ];
       const randomIndex = Math.floor(Math.random() * fortunes.length);
       fortuneResult.innerText = fortunes[randomIndex];
       fortuneResult.style.display = 'block';
     });
-
-    /* 생일 관련 재밌는 기능 */
+    
+    // 생일 파티 기능
     const birthdayBtn = document.getElementById('birthday-btn');
     const birthdayMessage = document.getElementById('birthday-message');
     const cakeImg = document.getElementById('cake-img');
     birthdayBtn.addEventListener('click', () => {
-      // 토글 방식: 클릭하면 메시지와 이미지 표시, 다시 클릭하면 숨김
       if (birthdayMessage.style.display === 'none') {
         birthdayMessage.style.display = 'block';
         cakeImg.style.display = 'block';
